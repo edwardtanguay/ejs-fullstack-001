@@ -4,17 +4,16 @@
 	<title>
 		<%=siteTitle%>
 	</title>
-	<link rel="shortcut icon"
-		  href="#">
 	<link rel="stylesheet"
 		  href="css/main.css">
+	<script src="js/main.js"
+			defer></script>
 	<script>
 		const handleImageState = (showImages) => {
 			const passwordElem = document.querySelector('.password');
 			(async () => {
 				const port = <%=port %>;
 				const backendUrl = '<%=backendUrl %>';
-				// const response = await fetch(backendUrl + ':' + port + '/api/changeState/', {
 				const response = await fetch(backendUrl + '/api/changeState/', {
 					method: 'PATCH',
 					headers: { 'Content-Type': 'application/json' },

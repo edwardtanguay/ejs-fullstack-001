@@ -21,13 +21,13 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 	const port = process.env.PORT || siteData.localPort;
 	const backendUrl = process.env.BACKEND_URL;
 
-	app.get('/info', (req, res) => {
-		res.render('info',
+	app.get('/books', (req, res) => {
+		res.render('books',
 			{
 				...siteData,
 				port,
 				backendUrl,
-				message: "Welcome to info page."
+				message: "Welcome to books page."
 			});
 	});
 	app.get('/settings', (req, res) => {

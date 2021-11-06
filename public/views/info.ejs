@@ -1,0 +1,35 @@
+<html>
+
+<head>
+	<title>
+		<%=siteTitle%>
+	</title>
+	<link rel="stylesheet"
+		  href="css/main.css">
+	<script src="js/main.js"
+			defer></script>
+</head>
+
+<body>
+	<h1>
+		<%=siteTitle%>
+	</h1>
+	<%- include('_nav.ejs')
+		%>
+		<p>
+			<%=message%>
+		</p>
+		<p>Here is our best product:</p>
+		<% if(showImages)
+		   {%>
+			<img src="images/book.png"
+				 alt="book">
+			<% }
+			   %>
+				<div class="showInfoArea">
+					<button onclick="showInfo()">Show Info</button>
+					<div class="productInfo"></div>
+				</div>
+</body>
+
+</html>

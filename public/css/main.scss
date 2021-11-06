@@ -1,0 +1,47 @@
+body {
+	background-color: #333;
+	font-family: sans-serif;
+	padding: 20px;
+	color: #ccc;
+
+	nav {
+		background-color: #222;
+		padding: 10px;
+		color: #333;
+	}
+
+	a {
+		color: #aaa;
+	}
+
+	.prefix {
+		color: yellow;
+	}
+
+	.showInfoArea {
+		margin: 10px 0 0 0;
+		.productInfo {
+			margin: 5px 0 0 0;
+		}
+	}
+
+	.adminArea {
+		background: #444;
+		padding: 10px;
+	}
+
+	.buttonArea {
+		margin: 10px 0 0 0;
+	}
+
+	.message {
+		margin: 10px 0 0 0;
+	}
+
+	.failure {
+		color: tomato;
+	}
+	.success {
+		color: lightgreen;
+	}
+}

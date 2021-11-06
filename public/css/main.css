@@ -1,0 +1,50 @@
+body {
+  background-color: #333;
+  font-family: sans-serif;
+  padding: 20px;
+  color: #ccc;
+}
+
+body nav {
+  background-color: #222;
+  padding: 10px;
+  color: #333;
+}
+
+body a {
+  color: #aaa;
+}
+
+body .prefix {
+  color: yellow;
+}
+
+body .showInfoArea {
+  margin: 10px 0 0 0;
+}
+
+body .showInfoArea .productInfo {
+  margin: 5px 0 0 0;
+}
+
+body .adminArea {
+  background: #444;
+  padding: 10px;
+}
+
+body .buttonArea {
+  margin: 10px 0 0 0;
+}
+
+body .message {
+  margin: 10px 0 0 0;
+}
+
+body .failure {
+  color: tomato;
+}
+
+body .success {
+  color: lightgreen;
+}
+/*# sourceMappingURL=main.css.map */

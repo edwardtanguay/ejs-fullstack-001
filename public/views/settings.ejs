@@ -1,0 +1,64 @@
+<html>
+
+<head>
+	<title>
+		<%=siteTitle%>
+	</title>
+	<link rel="shortcut icon"
+		  href="#">
+	<link rel="stylesheet"
+		  href="css/main.css">
+	<script>
+		const handleImageState = (showImages) => {
+			const passwordElem = document.querySelector('.password');
+			(async () => {
+				const port = <%=port %>;
+				const backendUrl = '<%=backendUrl %>';
+				// const response = await fetch(backendUrl + ':' + port + '/api/changeState/', {
+				const response = await fetch(backendUrl + '/api/changeState/', {
+					method: 'PATCH',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						showImages,
+						password: passwordElem.value
+					})
+				});
+				const data = await response.json();
+				const message = data.message;
+				const messageElem = document.querySelector('.message');
+				passwordElem.value = '';
+				messageElem.innerText = message;
+				if (response.status == 200) {
+					messageElem.classList.remove('failure');
+					messageElem.classList.add('success');
+				}
+				if (response.status == 401) {
+					messageElem.classList.remove('success');
+					messageElem.classList.add('failure');
+				}
+			})();
+		}
+	</script>
+</head>
+
+<body>
+	<h1>
+		<%=siteTitle%>
+	</h1>
+	<%- include('_nav.ejs')
+		%>
+		<p>
+			<%=message%>
+		</p>
+		<p>Changing this setting will affect all sessions permanently, not just this current session:</p>
+		<div class="adminArea">
+			<div>Admin password: <input type="password"
+					   class="password" />
+				<button onclick="handleImageState(true)">Show Images</button>
+				<button onclick="handleImageState(false)">Hide Images</button>
+			</div>
+			<div class="message">Type in password and click a button.</div>
+		</div>
+</body>
+
+</html>

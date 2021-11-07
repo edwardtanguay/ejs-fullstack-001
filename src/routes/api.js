@@ -3,6 +3,7 @@ import * as qfil from '../qtools/qfil.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
+const app = express();
 const router = express.Router();
 router.use(express.json());
 dotenv.config();
@@ -46,23 +47,25 @@ mongoose.connection.on('connected', () => {
 });
 
 router.patch('/changeState', (req, res) => {
-	console.log('host:', req.headers.host);
-	console.log('referer:', req.headers.referer);
-	console.log('origin:', req.headers.origin);
-	const { showImages, password } = req.body;
-	if (password === process.env.ADMIN_PASSWORD) {
-		qfil.getJsonDataFromFile('siteData.json', (siteData) => {
-			siteData.showImages = showImages;
-			qfil.saveJsonDataToFile('siteData.json', siteData, () => {
-				res.status(200).json({
-					message: showImages ? `This site now shows images.` : `This site now hides images.`
+	const referer = req.headers.referer;
+	if (referer === undefined || !referer.startsWith(process.env.BACKEND_URL)) {
+		res.status(403).send('no access');
+	} else {
+		const { showImages, password } = req.body;
+		if (password === process.env.ADMIN_PASSWORD) {
+			qfil.getJsonDataFromFile('siteData.json', (siteData) => {
+				siteData.showImages = showImages;
+				qfil.saveJsonDataToFile('siteData.json', siteData, () => {
+					res.status(200).json({
+						message: showImages ? `This site now shows images.` : `This site now hides images.`
+					});
 				});
 			});
-		});
-	} else {
-		res.status(401).json({
-			message: `Password was not correct. No settings were changed.`
-		});
+		} else {
+			res.status(401).json({
+				message: `Password was not correct. No settings were changed.`
+			});
+		}
 	}
 });
 

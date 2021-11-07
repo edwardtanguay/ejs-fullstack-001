@@ -46,6 +46,9 @@ mongoose.connection.on('connected', () => {
 });
 
 router.patch('/changeState', (req, res) => {
+	console.log('host:', req.headers.host);
+	console.log('referer:', req.headers.referer);
+	console.log('origin:', req.headers.origin);
 	const { showImages, password } = req.body;
 	if (password === process.env.ADMIN_PASSWORD) {
 		qfil.getJsonDataFromFile('siteData.json', (siteData) => {

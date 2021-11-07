@@ -6,7 +6,7 @@ router.use(express.json());
 
 router.patch('/changeState', (req, res) => {
 	const { showImages, password } = req.body;
-	if (password === 'pass123') {
+	if (password === process.env.ADMIN_PASSWORD) {
 		qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 			siteData.showImages = showImages;
 			qfil.saveJsonDataToFile('siteData.json', siteData, () => {

@@ -46,7 +46,7 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 				...siteData,
 				currentPageIdCode: 'settings',
 				backendUrl,
-				message: "Welcome to settings page"
+				message: "Welcome to settings page."
 			});
 	});
 

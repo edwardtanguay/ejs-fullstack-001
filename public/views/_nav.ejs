@@ -1,1 +1,15 @@
-<nav><a href="/">Home</a> | <a href="books">Books</a> | <a href="settings">Settings</a></nav>
+<% const
+   showClass=(pageIdCode)=> {
+	return pageIdCode == currentPageIdCode ? 'active' : '';
+	}
+	%>
+	<nav>
+		<div>
+			<a href="/"
+			   class="<%=showClass('home')%>">Home</a> | <a class="<%=showClass('books')%>"
+			   href="/books">Books</a> | <a class="<%=showClass('settings')%>"
+			   href="/settings">Settings</a>
+		</div>
+		<div>location: <%=applocation%>
+		</div>
+	</nav>

@@ -1,47 +1,31 @@
 body {
 	background-color: #333;
-	font-family: sans-serif;
-	padding: 20px;
-	color: #ccc;
-
+	p {
+		margin: 0;
+		padding: 0;
+	}
+	margin: 0;
+	padding: 0;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 	nav {
-		background-color: #222;
+		background-color: #777;
 		padding: 10px;
-		color: #333;
-	}
-
-	a {
-		color: #aaa;
-	}
-
-	.prefix {
-		color: yellow;
-	}
-
-	.showInfoArea {
-		margin: 10px 0 0 0;
-		.productInfo {
-			margin: 5px 0 0 0;
+		font-size: 1.4rem;
+		a {
+			color: #bbb;
+			text-decoration: none;
+			&.active {
+				color: #ddd;
+				font-weight: bold;
+				text-shadow: 2px 2px 2px #444;
+			}
 		}
+		color: #666;
+		display:flex;
+		justify-content: space-between;
 	}
-
-	.adminArea {
-		background: #444;
-		padding: 10px;
-	}
-
-	.buttonArea {
-		margin: 10px 0 0 0;
-	}
-
-	.message {
-		margin: 10px 0 0 0;
-	}
-
-	.failure {
-		color: tomato;
-	}
-	.success {
-		color: lightgreen;
+	section.container {
+		padding: 20px;
+		font-size: 1.8rem;
 	}
 }

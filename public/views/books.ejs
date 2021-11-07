@@ -1,27 +1,30 @@
 <html>
 
 <head>
-	<%- include('_head.ejs') %>
-	<script src="js/main.js"></script>
+	<%- include('_head.ejs')
+		%>
+		<script src="js/main.js"></script>
 </head>
 
 <body>
 	<%- include('_nav.ejs')
 		%>
-		<p>
-			<%=message%>
-		</p>
-		<p>Here is our best product:</p>
-		<% if(showImages)
-		   {%>
-			<img src="images/book.png"
-				 alt="book">
-			<% }
-			   %>
-				<div class="showInfoArea">
-					<button onclick="showInfo()">Show Info</button>
-					<div class="productInfo"></div>
-				</div>
+		<section class="container">
+			<p>
+				<%=message%>
+			</p>
+			<p>Here is our best product:</p>
+			<% if(showImages)
+			   {%>
+				<img src="images/book.png"
+					 alt="book">
+				<% }
+				   %>
+					<div class="showInfoArea">
+						<button onclick="showInfo()">Show Info</button>
+						<div class="productInfo"></div>
+					</div>
+		</section>
 </body>
 
 </html>

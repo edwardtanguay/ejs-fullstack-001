@@ -12,7 +12,6 @@
 		const handleImageState = (showImages) => {
 			const passwordElem = document.querySelector('.password');
 			(async () => {
-				const port = <%=port %>;
 				const backendUrl = '<%=backendUrl %>';
 				const response = await fetch(backendUrl + '/api/changeState/', {
 					method: 'PATCH',
@@ -41,20 +40,22 @@
 </head>
 
 <body>
-	<%- include('_nav.ejs')
-		%>
-		<p>
-			<%=message%>
-		</p>
-		<p>Changing this setting will affect all sessions permanently, not just this current session:</p>
-		<div class="adminArea">
-			<div>Admin password: <input type="password"
-					   class="password" />
-				<button onclick="handleImageState(true)">Show Images</button>
-				<button onclick="handleImageState(false)">Hide Images</button>
+	<section class="container">
+		<%- include('_nav.ejs')
+			%>
+			<p>
+				<%=message%>
+			</p>
+			<p>Changing this setting will affect all sessions permanently, not just this current session:</p>
+			<div class="adminArea">
+				<div>Admin password: <input type="password"
+						   class="password" />
+					<button onclick="handleImageState(true)">Show Images</button>
+					<button onclick="handleImageState(false)">Hide Images</button>
+				</div>
+				<div class="message">Type in password and click a button.</div>
 			</div>
-			<div class="message">Type in password and click a button.</div>
-		</div>
+	</section>
 </body>
 
 </html>

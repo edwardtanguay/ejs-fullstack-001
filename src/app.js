@@ -18,14 +18,24 @@ app.use(express.static(staticDirectory));
 
 qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 
-	const port = process.env.PORT || siteData.localPort;
-	const backendUrl = process.env.BACKEND_URL;
+	siteData.port = process.env.PORT || siteData.localPort;
+	siteData.applocation = process.env.APP_LOCATION;
+	const backendUrl = siteData.applocation === 'local' ? process.env.BACKEND_URL + ':' + siteData.port : process.env.BACKEND_URL;
 
+	app.get('/', (req, res) => {
+		res.render('index',
+			{
+				...siteData,
+				currentPageIdCode: 'home',
+				backendUrl,
+				message: 'Welcome to the home page.',
+			});
+	});
 	app.get('/books', (req, res) => {
 		res.render('books',
 			{
 				...siteData,
-				port,
+				currentPageIdCode: 'books',
 				backendUrl,
 				message: "Welcome to books page."
 			});
@@ -34,18 +44,9 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 		res.render('settings',
 			{
 				...siteData,
-				port,
+				currentPageIdCode: 'settings',
 				backendUrl,
 				message: "Welcome to settings page."
-			});
-	});
-	app.get('/', (req, res) => {
-		res.render('index',
-			{
-				...siteData,
-				port,
-				backendUrl,
-				message: 'Welcome to the home page.',
 			});
 	});
 
@@ -56,7 +57,7 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 		});
 	});
 
-	app.listen(port, () => {
-		console.log(`Listening on port http://localhost:${port}`);
+	app.listen(siteData.port, () => {
+		console.log(`Listening on port http://localhost:${siteData.port}`);
 	});
 });

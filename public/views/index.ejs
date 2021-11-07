@@ -1,15 +1,18 @@
 <html lang="en">
 
 <head>
-	<%- include('_head.ejs') %>
+	<%- include('_head.ejs')
+		%>
 </head>
 
 <body>
-	<%- include('_nav.ejs')
-		%>
-		<p>
-			<%=message%>
-		</p>
+	<section class="container">
+		<%- include('_nav.ejs')
+			%>
+			<p>
+				<%=message%>
+			</p>
+	</section>
 </body>
 
 </html>

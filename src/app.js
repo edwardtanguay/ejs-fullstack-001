@@ -1,10 +1,11 @@
 import express from 'express';
 import path from 'path';
-const __dirname = path.resolve(path.dirname(''));
 import * as qfil from './qtools/qfil.js';
 import apiRouter from './routes/api.js';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
+const __dirname = path.resolve(path.dirname(''));
 const app = express();
 dotenv.config();
 
@@ -15,6 +16,48 @@ app.use('/api', apiRouter);
 
 const staticDirectory = path.join(__dirname, './public');
 app.use(express.static(staticDirectory));
+
+// connection to mongo
+mongoose.connect(process.env.MONGODB_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
+
+// mongoose schema
+const Schema = mongoose.Schema;
+const FlashcardSchema = new Schema({
+	front: String,
+	back: String,
+	whenCreated: {
+		type: String,
+		default: Date.now()
+	}
+});
+
+// mongoose model
+const Flashcard = mongoose.model('Flashcard', FlashcardSchema);
+
+// item
+const flashcardData = {
+	front: process.env.APP_LOCATION,
+	back: 'bbb'
+};
+
+const flashcard = new Flashcard(flashcardData);
+flashcard.save(err => {
+	if (err) {
+		console.log('error saving: ' + err);
+	} else {
+		console.log('data saved');
+	}
+});
+
+
+
+
+mongoose.connection.on('connected', () => {
+	console.log('mongoose connected');
+});
 
 qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 

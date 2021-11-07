@@ -6,14 +6,14 @@ body {
 }
 
 body p {
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 0;
 }
 
 body nav {
   background-color: #777;
   padding: 10px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #666;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,6 +36,40 @@ body nav a.active {
 
 body section.container {
   padding: 20px;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+body section.container .prefix {
+  color: yellow;
+}
+
+body section.container .showInfoArea {
+  margin: 10px 0 0 0;
+}
+
+body section.container .showInfoArea .productInfo {
+  margin: 5px 0 0 0;
+}
+
+body section.container .adminArea {
+  background: #444;
+  padding: 10px;
+}
+
+body section.container .buttonArea {
+  margin: 10px 0 0 0;
+}
+
+body section.container .message {
+  margin: 10px 0 0 0;
+}
+
+body section.container .failure {
+  color: tomato;
+}
+
+body section.container .success {
+  color: lightgreen;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,48 +1,44 @@
 <html>
 
 <head>
-	<title>
-		<%=siteTitle%>
-	</title>
-	<link rel="stylesheet"
-		  href="css/main.css">
-	<script src="js/main.js"
-			defer></script>
-	<script>
-		const handleImageState = (showImages) => {
-			const passwordElem = document.querySelector('.password');
-			(async () => {
-				const backendUrl = '<%=backendUrl %>';
-				const response = await fetch(backendUrl + '/api/changeState/', {
-					method: 'PATCH',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({
-						showImages,
-						password: passwordElem.value
-					})
-				});
-				const data = await response.json();
-				const message = data.message;
-				const messageElem = document.querySelector('.message');
-				passwordElem.value = '';
-				messageElem.innerText = message;
-				if (response.status == 200) {
-					messageElem.classList.remove('failure');
-					messageElem.classList.add('success');
-				}
-				if (response.status == 401) {
-					messageElem.classList.remove('success');
-					messageElem.classList.add('failure');
-				}
-			})();
-		}
-	</script>
+	<%- include('_head.ejs')
+		%>
+		<script src="js/main.js"></script>
+		<script>
+			const handleImageState = (showImages) => {
+				const passwordElem = document.querySelector('.password');
+				(async () => {
+					const backendUrl = '<%=backendUrl %>';
+					const response = await fetch(backendUrl + '/api/changeState/', {
+						method: 'PATCH',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({
+							showImages,
+							password: passwordElem.value
+						})
+					});
+					const data = await response.json();
+					const message = data.message;
+					const messageElem = document.querySelector('.message');
+					passwordElem.value = '';
+					messageElem.innerText = message;
+					if (response.status == 200) {
+						messageElem.classList.remove('failure');
+						messageElem.classList.add('success');
+					}
+					if (response.status == 401) {
+						messageElem.classList.remove('success');
+						messageElem.classList.add('failure');
+					}
+				})();
+			}
+		</script>
 </head>
 
 <body>
-	<section class="container">
-		<%- include('_nav.ejs')
-			%>
+	<%- include('_nav.ejs')
+		%>
+		<section class="container">
 			<p>
 				<%=message%>
 			</p>
@@ -55,7 +51,7 @@
 				</div>
 				<div class="message">Type in password and click a button.</div>
 			</div>
-	</section>
+		</section>
 </body>
 
 </html>

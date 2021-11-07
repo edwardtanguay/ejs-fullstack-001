@@ -1,16 +1,16 @@
 body {
 	background-color: #333;
-	p {
-		margin: 0;
-		padding: 0;
-	}
 	margin: 0;
 	padding: 0;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	p {
+		margin: 0 0 5px 0; 
+		padding: 0;
+	}
 	nav {
 		background-color: #777;
 		padding: 10px;
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 		a {
 			color: #bbb;
 			text-decoration: none;
@@ -21,11 +21,43 @@ body {
 			}
 		}
 		color: #666;
-		display:flex;
+		display: flex;
 		justify-content: space-between;
 	}
 	section.container {
 		padding: 20px;
-		font-size: 1.8rem;
+		font-size: 1.2rem;
+		color: #ccc;
+		.prefix {
+			color: yellow;
+		}
+
+		.showInfoArea {
+			margin: 10px 0 0 0;
+		}
+
+		.showInfoArea .productInfo {
+			margin: 5px 0 0 0;
+		}
+
+		.adminArea {
+			background: #444;
+			padding: 10px;
+		}
+
+		.buttonArea {
+			margin: 10px 0 0 0;
+		}
+
+		.message {
+			margin: 10px 0 0 0;
+		}
+
+		.failure {
+			color: tomato;
+		}
+		.success {
+			color: lightgreen;
+		}
 	}
 }

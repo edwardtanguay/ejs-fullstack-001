@@ -28,7 +28,7 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 				...siteData,
 				currentPageIdCode: 'home',
 				backendUrl,
-				message: 'Welcome to the home page',
+				message: 'Welcome to the EJS Full-Stack 001 project',
 			});
 	});
 	app.get('/books', (req, res) => {

@@ -44,6 +44,12 @@ body section.container .prefix {
   color: yellow;
 }
 
+body section.container code {
+  background-color: #444;
+  color: #ccc;
+  font-size: 1rem;
+}
+
 body section.container h2 {
   margin: 0 0 20px 0;
 }
@@ -63,8 +69,6 @@ body section.container .showInfoArea .productInfo {
 body section.container .adminArea {
   background: #444;
   padding: 10px;
-  width: 500px;
-  margin: 15px 0 0 0;
 }
 
 body section.container .buttonArea {
@@ -85,5 +89,10 @@ body section.container .success {
 
 body section.container ul {
   margin: 0;
+}
+
+body section.container li.todo {
+  color: #888;
+  font-style: italic;
 }
 /*# sourceMappingURL=main.css.map */

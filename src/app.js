@@ -36,7 +36,6 @@ const FlashcardSchema = new Schema({
 
 // mongoose model
 const Flashcard = mongoose.model('Flashcard', FlashcardSchema);
-
 // item
 const flashcardData = {
 	front: process.env.APP_LOCATION,

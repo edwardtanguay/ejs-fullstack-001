@@ -32,6 +32,12 @@ body {
 			color: yellow;
 		}
 
+		h2 {
+			margin: 0 0 20px 0;
+		}
+		a {
+			color: rgb(233, 233, 160);
+		}
 		.showInfoArea {
 			margin: 10px 0 0 0;
 		}
@@ -58,6 +64,9 @@ body {
 		}
 		.success {
 			color: lightgreen;
+		}
+		ul {
+			margin: 0;
 		}
 	}
 }

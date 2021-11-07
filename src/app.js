@@ -28,7 +28,7 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 				...siteData,
 				currentPageIdCode: 'home',
 				backendUrl,
-				message: 'Welcome to the home page.',
+				message: 'Welcome to the home page',
 			});
 	});
 	app.get('/books', (req, res) => {
@@ -37,7 +37,7 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 				...siteData,
 				currentPageIdCode: 'books',
 				backendUrl,
-				message: "Welcome to books page."
+				message: "Welcome to books page"
 			});
 	});
 	app.get('/settings', (req, res) => {
@@ -46,7 +46,7 @@ qfil.getJsonDataFromFile('siteData.json', (siteData) => {
 				...siteData,
 				currentPageIdCode: 'settings',
 				backendUrl,
-				message: "Welcome to settings page."
+				message: "Welcome to settings page"
 			});
 	});
 

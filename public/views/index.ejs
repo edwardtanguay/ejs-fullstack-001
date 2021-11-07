@@ -9,9 +9,12 @@
 	<%- include('_nav.ejs')
 		%>
 		<section class="container">
-			<p>
-				<%=message%>
-			</p>
+			<h2><%=message%></h2>
+			<p class="listIntro">This site demonstrates the following:</p>
+			<ul>
+				<li>Node/Express site that servers EJS pages</li>
+				<li>Environment variables using <a href="https://www.npmjs.com/package/dotenv">dotenv</a></li>
+			</ul>
 		</section>
 </body>
 
